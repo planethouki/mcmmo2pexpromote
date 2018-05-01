@@ -1,0 +1,7 @@
+name: Mcmmo2pexrank
+main: com.github.planethouki.mcmmo2pexrank.Mcmmo2pexrank
+version: 0.0.1
+depend: [mcMMO, PermissionsEx]
+commands:
+  mcpex:
+    usage: /<command> [player]
