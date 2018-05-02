@@ -24,7 +24,6 @@ public class McpexListener implements Listener {
 	public void onPlayerLevelUpEvent(McMMOPlayerLevelUpEvent event) {
 		Player player = event.getPlayer();
 		McMMOPlayer mcPlayer = UserManager.getPlayer(player);
-		//TODO is getPowerLevel after or before level up ?
 		int level = mcPlayer.getPowerLevel() - event.getLevelsGained();
 
 		if (level < 30) {
@@ -39,11 +38,11 @@ public class McpexListener implements Listener {
 			this.pexPromote(player);
 		}
 
-		plugin.getLogger().info("McMMOPlayerLevelUpEvent");
-		plugin.getLogger().info("LevelsGained: " + Integer.toString(event.getLevelsGained()));
-		plugin.getLogger().info("SkillLevel: " + Integer.toString(event.getSkillLevel()));
-		plugin.getLogger().info("Skill: " + event.getSkill().getName());
-		plugin.getLogger().info("PowerLevel: " + Integer.toString(mcPlayer.getPowerLevel()));
+//		plugin.getLogger().info("McMMOPlayerLevelUpEvent");
+//		plugin.getLogger().info("LevelsGained: " + Integer.toString(event.getLevelsGained()));
+//		plugin.getLogger().info("SkillLevel: " + Integer.toString(event.getSkillLevel()));
+//		plugin.getLogger().info("Skill: " + event.getSkill().getName());
+//		plugin.getLogger().info("PowerLevel: " + Integer.toString(mcPlayer.getPowerLevel()));
 	}
 
 	private void pexPromote(Player player) {
@@ -58,7 +57,7 @@ public class McpexListener implements Listener {
 			plugin.getLogger().info("Promote User=" + user.getName() + " rank=" + user.getRank(null));
 		} catch (RankingException e) {
 			//e.printStackTrace();
-			plugin.getLogger().warning(e.getMessage() + " User=" + user.getName() + " Rank=" + user.getRank(null));
+			plugin.getLogger().warning(e.getMessage() + " User=" + e.getTarget() + " Rank=" + user.getRank(null));
 		}
 	}
 

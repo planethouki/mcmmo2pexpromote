@@ -14,7 +14,6 @@ public class McpexPlugin extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		getServer().getPluginManager().registerEvents(new McpexListener(this), this);
-		getCommand("mcpex").setExecutor(new McpexCommand(this));
 		super.onEnable();
 	}
 
