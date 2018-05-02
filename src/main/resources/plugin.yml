@@ -1,0 +1,10 @@
+name: Mcmmo2pexrank
+main: com.github.planethouki.mcmmolevel2pexpromote.McpexPlugin
+version: 0.0.1
+depend: [mcMMO, PermissionsEx]
+commands:
+  mcpex:
+    usage: |
+      /<command> [player]
+      /<command> promote player - promote player test
+      /<command> demote player - demote player test
