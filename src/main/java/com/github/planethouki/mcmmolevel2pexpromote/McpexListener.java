@@ -24,25 +24,17 @@ public class McpexListener implements Listener {
 	public void onPlayerLevelUpEvent(McMMOPlayerLevelUpEvent event) {
 		Player player = event.getPlayer();
 		McMMOPlayer mcPlayer = UserManager.getPlayer(player);
-		int level = mcPlayer.getPowerLevel() - event.getLevelsGained();
+		int level = mcPlayer.getPowerLevel();
 
-		if (level < 30) {
-			return;
-		} else if (level == 100) {
-			this.pexPromote(player);
-		} else if (level == 300) {
-			this.pexPromote(player);
-		} else if (level == 500) {
-			this.pexPromote(player);
-		} else if (level == 1000) {
+		if (plugin.getTargetPowers().contains(level)) {
 			this.pexPromote(player);
 		}
 
-//		plugin.getLogger().info("McMMOPlayerLevelUpEvent");
-//		plugin.getLogger().info("LevelsGained: " + Integer.toString(event.getLevelsGained()));
-//		plugin.getLogger().info("SkillLevel: " + Integer.toString(event.getSkillLevel()));
-//		plugin.getLogger().info("Skill: " + event.getSkill().getName());
-//		plugin.getLogger().info("PowerLevel: " + Integer.toString(mcPlayer.getPowerLevel()));
+		plugin.getLogger().info("McMMOPlayerLevelUpEvent");
+		plugin.getLogger().info("LevelsGained: " + Integer.toString(event.getLevelsGained()));
+		plugin.getLogger().info("SkillLevel: " + Integer.toString(event.getSkillLevel()));
+		plugin.getLogger().info("Skill: " + event.getSkill().getName());
+		plugin.getLogger().info("PowerLevel: " + Integer.toString(mcPlayer.getPowerLevel()));
 	}
 
 	private void pexPromote(Player player) {
