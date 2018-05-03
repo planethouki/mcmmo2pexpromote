@@ -24,17 +24,9 @@ public class McpexListener implements Listener {
 	public void onPlayerLevelUpEvent(McMMOPlayerLevelUpEvent event) {
 		Player player = event.getPlayer();
 		McMMOPlayer mcPlayer = UserManager.getPlayer(player);
-		int level = mcPlayer.getPowerLevel() - event.getLevelsGained();
+		int level = mcPlayer.getPowerLevel();
 
-		if (level < 30) {
-			return;
-		} else if (level == 100) {
-			this.pexPromote(player);
-		} else if (level == 300) {
-			this.pexPromote(player);
-		} else if (level == 500) {
-			this.pexPromote(player);
-		} else if (level == 1000) {
+		if (plugin.getTargetPowers().contains(level)) {
 			this.pexPromote(player);
 		}
 
@@ -49,15 +41,16 @@ public class McpexListener implements Listener {
 		PermissionUser user = PermissionsEx.getUser(player);
 		if (user == null) {
 			plugin.getLogger().severe("Pex cannot find user. User=" + player.getName());
+			return;
 		}
 		user.getRank(null);
 		try {
 			user.promote(null, null);
 			player.sendMessage("Your role is level up! Now: " + user.getRankLadderGroup(null).getName());
-			plugin.getLogger().info("Promote User=" + user.getName() + " rank=" + user.getRank(null));
+			plugin.getLogger().info("Promote User=" + user.getName() + " Group=" + user.getRankLadderGroup(null).getName());
 		} catch (RankingException e) {
 			//e.printStackTrace();
-			plugin.getLogger().warning(e.getMessage() + " User=" + e.getTarget() + " Rank=" + user.getRank(null));
+			plugin.getLogger().warning(e.getMessage() + " User=" + e.getTarget() + " Group=" + user.getRankLadderGroup(null).getName());
 		}
 	}
 
