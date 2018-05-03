@@ -1,6 +1,6 @@
 # mcMMOLevel2PEXPromote
 
-It is a plug-in of Buckkit / Spigot which is a maincraft server.
+It is a plug-in of Bukkit / Spigot which is a Minecraft server.
 
 When the power level of mcMMO reaches the set value, it is automatically prompted.
 
