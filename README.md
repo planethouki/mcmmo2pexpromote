@@ -13,3 +13,8 @@ mcMMO, PermissionsEX
 * mcMMO power level is configurable. ex. [10, 20, 50, 100]
 * Supporting PEX rank ladder is "default" only.
 * Cannot check present player's rank. only automatically promote.
+
+## Future
+
+* rank ladder configurable
+* rank number 
